@@ -15,7 +15,7 @@ $("#counter2").text("The photo has been clicked " + clickOk2 + " times");
 });**/
 
 var listCat = document.getElementsByTagName("li");
-var img = document.getElementsByTagName("img");
+var imgCat = $("#imgCat img");
 var contDisplay= document.getElementsByClassName("gContainer");
 var cat= {
   "catty": [{
@@ -65,20 +65,29 @@ for(i=0; i<cat.catty.length; i++){
     }
 
   })(names, images));
+}
+
+var images = currentObj.image;
+
+for(i=0; i<images.length; i++){
+  var clickTot= currentObj.click;
+
+  var diffImage = imgCat[i];
+
+    console.log(imgCat);
+  $(diffImage).click( (function(clickOk, imgCats){
+
+    return function(){
+      clickTot++;
+      $("#counter").text("The photo has been clicked " + clickTot + " times");
+  }
+})(clickTot, images));
 
 
 
 }
 
-var clickTot= currentObj.click;
-for (i=0; i<img.length; i++){
-var diffImage = img[i];
-$(diffImage).click(function(){
-clickTot++;
-$("#counter").text("The photo has been clicked " + clickTot + " times");
 
-});
-}
 /*
 var clickOk = 0;
 for (i=0; i<listCat.length; i++){
