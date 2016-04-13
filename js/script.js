@@ -51,11 +51,11 @@ var cat= {
 for(i=0; i<cat.catty.length; i++){
 
   var listItems = listCat[i];
-  var diffImage = img[i];
+
   var currentObj = cat.catty[i];
   var names = currentObj.name;
   var images = currentObj.image;
- var clickTot= currentObj.click;
+
 
   $(listItems).click( (function(name, source){
 
@@ -67,14 +67,18 @@ for(i=0; i<cat.catty.length; i++){
   })(names, images));
 
 
-  $(diffImage).click(function(){
+
+}
+
+var clickTot= currentObj.click;
+for (i=0; i<img.length; i++){
+var diffImage = img[i];
+$(diffImage).click(function(){
 clickTot++;
-  $("#counter").text("The photo has been clicked " + clickTot + " times");
+$("#counter").text("The photo has been clicked " + clickTot + " times");
 
 });
 }
-
-
 /*
 var clickOk = 0;
 for (i=0; i<listCat.length; i++){
