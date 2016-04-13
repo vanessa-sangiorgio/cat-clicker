@@ -15,43 +15,47 @@ $("#counter2").text("The photo has been clicked " + clickOk2 + " times");
 });**/
 
 var listCat = document.getElementsByTagName("li");
+var img = document.getElementsByTagName("img");
 var contDisplay= document.getElementsByClassName("gContainer");
 var cat= {
   "catty": [{
     "name": "Nano: The puppy",
-    "image": "image/cat.jpg"
+    "image": "image/cat.jpg",
+    "click": 0,
 
   }, {
     "name": "Lucy: The hidden",
-    "image": "image/cat2.jpg"
-
+    "image": "image/cat2.jpg",
+      "click": 0,
   }, {
     "name": "Duna: The curious",
-    "image": "image/cat3.jpg"
-
+    "image": "image/cat3.jpg",
+  "click": 0,
   }, {
     "name": "Herbie: The Hunter",
-    "image": "image/cat4.jpg"
-
+    "image": "image/cat4.jpg",
+  "click": 0,
   }, {
     "name": "Emy: The Sleeper",
-    "image": "image/cat5.jpg"
-
+    "image": "image/cat5.jpg",
+  "click": 0,
   }, {
     "name": "Cat: The Laziness",
-    "image": "image/cat6.jpg"
-
+    "image": "image/cat6.jpg",
+  "click": 0,
   }]
 
 };
 
+
 for(i=0; i<cat.catty.length; i++){
 
   var listItems = listCat[i];
+  var diffImage = img[i];
   var currentObj = cat.catty[i];
   var names = currentObj.name;
   var images = currentObj.image;
-
+ var clickTot= currentObj.click;
 
   $(listItems).click( (function(name, source){
 
@@ -61,6 +65,13 @@ for(i=0; i<cat.catty.length; i++){
     }
 
   })(names, images));
+
+
+  $(diffImage).click(function(){
+clickTot++;
+  $("#counter").text("The photo has been clicked " + clickTot + " times");
+
+});
 }
 
 
